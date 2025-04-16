@@ -1,0 +1,44 @@
+1. 프로턱션 모드로 실행 시켜보면 확실하게 알 수 있다.
+빌드 : npm run build
+ㄴ 프로젝트 영역에 - dist 폴더가 생김(리액으 앱의 빌드 결과)
+ㄴㄴ index-DlCJ4FR1.js 파일은 우리가 작성한 모든 리액트 코드들이 압축된 상태 파일이다.
+
+실행 : npm run preview
+ㄴ 위 빌드된 결과를 확인하는 명령어
+ㄴㄴ http://localhost:4173/
+
+2. 개발자도구 - 네트워크 탭 > IMG 체크 + Preserve log(네트워크 요청 유지) 체크
+- 네트워크 탭 : 리액트 앱이 주고받는 모든 네트워크 요청들을 모니터링하는 곳.
+
+ Size
+  ex) 148 B(바이트)
+
+  ✅ data url 형식으로 불러오면 새로고침해도 캐시된 데이터로 사용한다
+  ex) (memory cache)
+
+
+  --------------
+  public 폴더  ㅣ 정적인 파일
+  그렇다면 이미지를 asserts 폴더에 넣은 이유가 뭘까?
+  - vite가 내부적으로 진행하는 이미지 최적화 작업 때문이다.
+  ㄴ 개발자도구 > Elements >  '<img src="data:image/png:base64 ~ '  <-- 암호문같이 보이는데 이걸 'Data URI' 라고 부른다
+  ㄴㄴ Data URI : 이미지와 같은 이런 외부 데이터들을 문자열 형태로 브라우저의 메모리에 캐시하기 위함.
+
+  10000개 이미도 브라우저 캐시하면될까?
+  - 아니, public폴더 안에 두자.
+  - 소수의 이미지정도만 브라우저 캐시를 사용하자.
+
+  --------------------
+import { getEmotionImage } from "./util/get-emotion-image"; //이미지를 불러오는 코드를 별도의 모듈로 관리
+...
+
+<div>
+    {/* textFile > img 새로고침 > 참고 - ex) <img src={"/emotion1.png"} /> */}
+    <img src={"/emotion1.png"}/>
+    <img src={getEmotionImage(1)}/>
+    <img src={getEmotionImage(2)}/>
+    <img src={getEmotionImage(3)}/>
+    <img src={getEmotionImage(4)}/>
+    <img src={getEmotionImage(5)}/>
+    {/* <img src={emotion5} /> */}
+</div>

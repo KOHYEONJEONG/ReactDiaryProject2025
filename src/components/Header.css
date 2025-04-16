@@ -1,0 +1,29 @@
+.Header {
+    display: flex;
+    align-items: center;
+
+    padding: 20px 0px;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+
+.Header > div {
+    display: flex;
+}
+
+.Header .header_center {
+    width: 50%;
+    font-size: 25px;
+    justify-content: center;
+}
+
+.Header .header_left {
+    width: 25%;
+    /*Header(부모)는 display: flex; 이어야 하며, Header 의 자식은 왼쪽 끝으로 정렬하겠다.*/
+    justify-content: flex-start;
+}
+
+.Header .header_right {
+    width: 25%;
+    /*Header(부모)는 display: flex; 이어야 하며, Header 의 자식은 오른쪽 끝으로 정렬하겠다.*/
+    justify-content: flex-end;
+}

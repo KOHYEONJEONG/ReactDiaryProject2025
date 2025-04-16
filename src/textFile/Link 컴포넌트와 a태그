@@ -1,0 +1,17 @@
+	import { Routes, Route, Link, useNavigate } from "react-router-dom"; //Link 컴포넌트 = a태그
+	const nav = useNavigate();
+	const onClickButton = () => {
+		//이벤트 핸들러 함수 안에서 특정 조건에 따라 이동할 페이지가 다르다면 import - useNavigate  커스텀 훅을 사용하자.
+		nav("/new"); // navigate 함수를 받아와서 사용하면 된다.
+	};
+
+    <div>
+        {/*🚩 Link 컴포넌트*/}
+        {/*	내부 링크 만들때 사용, CSR 방식, 새로고침되지 않고 쾌적하고 빠르다.*/}
+        {/*🚩 a태그*/}
+        {/*	a태그 사용하면 SSR 방식으로 새로고침되는걸 알 수 있다.*/}
+        <Link to={"/"}>Home</Link>
+        <Link to={"/new"}>New</Link>
+        <Link to={"/diary"}>Diary</Link>
+        <button onClick={onClickButton}>New 페이지로 이동</button>
+    </div>

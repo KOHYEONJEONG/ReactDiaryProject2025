@@ -1,0 +1,20 @@
+.Button {
+    /*Button_undefined 명시하지 않았기에 기본 Button 스타일만 적용된다.*/
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.Button_POSITIVE {
+    background-color: rgb(100, 201, 100);
+    color: white;
+}
+
+.Button_NEGATIVE {
+    background-color: rgb(253, 86, 95);
+    color: white;
+}

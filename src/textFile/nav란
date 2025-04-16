@@ -1,0 +1,28 @@
+import { useNavigate } from "react-router-dom";
+
+컴포넌트 = () => {
+const nav = useNavigate();
+...
+
+	const goDiaryPage = () => {
+		nav(`/diary/${id}`);
+	};
+}
+
+
+ex) Edit.jsx
+Edit 페이지를 렌더링 한다는 말은, 곧 Edit 컴포넌트(함수)를 호출한다.
+(함수는 호출되면 함수 내의 코드를 한줄 한줄 씩 순차적으로 수행한다.)
+Edit 함수(컴포넌트)도 마찬가지이다.
+
+Edit 함수가 호출되면
+내부에서 호출한 함수도 호출이 되는데
+ex) const result = invokeFn();
+🚨이때 함수(Edit 컴포넌트)가 종료되지 않았기 때문에 return 값을 받지 못한다.
+ㄴ 이 상태를 컴포넌트 Mount 이전의 상태(화면에 그려지기 전)라고 표현한다.
+
+🚨오류 발생 원인
+React Router의 nav() 메서드는 컴포넌트가 Mount 되기 이전에 호출될 경우 오류(혹은 경로)를 발생히시키 때문이다.
+이 이유는 부자연스럽기 때문이다.
+특정 컴포넌트가 화면에 그려지기(Mount) 전에 페이지가 이동할 경우 해당 컴포넌트는
+페이지에서 제거 될 가능성이 생기기 때문에 이런 동작은 허용되지 않는다.

@@ -1,0 +1,10 @@
+
+# 호출과 렌더링 차이
+컴포넌트 호출	 :  컴포넌트 함수가 실행되는 것 (JS 함수로서 실행됨)
+컴포넌트 렌더링 :  컴포넌트가 실행된 결과(JSX)를 기반으로 화면에 UI를 그리는 것
+
+참고 위치 : DiaryProject/src/hooks/useDiary.jsx
+
+-------------
+useEffect()에 deps가 설정되어 있는데
+그 deps(의존성 변수)가 undefined 상태로 들어오는 이유가 뭘까
