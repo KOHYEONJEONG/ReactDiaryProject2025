@@ -154,4 +154,8 @@ psd
 thumb
 sketch
 
+# JetBrains IDE 설정 무시
+.idea/
+*.iml
+
 # End of https://www.toptal.com/developers/gitignore/api/node,react
